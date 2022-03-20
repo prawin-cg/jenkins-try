@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('Build'){
       steps{
-      sh 'gcloud builds submit gcr.io/famous-strategy-344516/load-job-img:10'
+      sh 'gcloud builds submit --tag gcr.io/famous-strategy-344516/load-job-img:10'
       }
     }
     stage('Deploy'){
