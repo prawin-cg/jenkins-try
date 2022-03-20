@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: load-job
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: load-job-img
+            image: gcr.io/famous-strategy-344516/load-job-img:10
+            imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
